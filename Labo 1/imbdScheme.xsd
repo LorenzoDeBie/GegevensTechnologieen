@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:element name="imdb">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="filmmaatschappijen"/>
+                <xs:element ref="personen" />
+                <xs:element ref="films" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="filmmaatschappijen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="filmmaatschappij" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="filmmaatschappij">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naam" type="xs:string"/>
+                <xs:element name="website" type="xs:string" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="personen">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="persoon" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="persoon">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="naam" type="xs:string"/>
+                <xs:element name="geboortedatum">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="\d\d/\d\d/\d\d\d\d" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="geboorteplaats" type="xs:string" />
+                <xs:element name="geslacht">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:pattern value="[MV]" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element ref="foto" />
+            </xs:sequence>
+            <xs:attribute name="id" type="xs:ID" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="foto">
+        <xs:simpleType>
+            <xs:restriction base="xs:string">
+                <xs:pattern value=".+\.jpg" />
+            </xs:restriction>
+        </xs:simpleType>
+    </xs:element>
+
+    <xs:element name="films">
+        <xs:complexType>
+            <xs:choice maxOccurs="unbounded">
+                <xs:element ref="film" minOccurs="0" />
+                <xs:element ref="animatiefilm" minOccurs="0" />
+            </xs:choice>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="animatiefilm"  type="animatiefilmType"/>
+    <xs:complexType name="animatiefilmType">
+        <xs:sequence>
+            <xs:element name="titel" type="xs:string" />
+            <xs:element ref="cast" />
+            <xs:element ref="regisseur" maxOccurs="unbounded"/>
+            <xs:element name="speelduur" type="xs:positiveInteger" />
+            <xs:element name="maatschappijen">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element ref="maatschappij" maxOccurs="unbounded" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:ID" use="required"/>
+        <xs:attribute name="beoordeling" >
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="KT|KNT" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+    <xs:element name="cast" >
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="personage" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="regisseur" >
+        <xs:complexType>
+            <xs:attribute name="naam" type="xs:IDREF"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="maatschappij" >
+        <xs:complexType>
+            <xs:attribute name="naam" type="xs:IDREF" />
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="personage" >
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:string">
+                    <xs:attribute name="acteur" type="xs:IDREF" />
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="film" >
+        <xs:complexType>
+            <xs:complexContent>
+                <xs:extension base="animatiefilmType">
+                    <xs:sequence>
+                        <xs:element name="filmlocatie" type="xs:string" />
+                    </xs:sequence>
+                </xs:extension>
+            </xs:complexContent>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
