@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../uforaTiwiStijl.css"/>
+	<title>Labo 01: DTD en XML Schema</title>
+</head>
+<body>
+<!-- <h1>Labo 1: DTD en XML Schema</h1> -->
+<p>
+Schrijf een DTD en XML Schema voor het controleren van de gegevens van films. 
+In de map 'DOCUMENTATIE' vind je een cheat sheet voor <a href="../DOCUMENTATIE/cheat_sheet_XMLSchema.pdf">XML Schema</a>, 
+en een voor <a href="../DOCUMENTATIE/cheat_sheet_regular_expressions.pdf">reguliere expressies</a>.
+<ol>
+	<li>Schrijf eerst de DTD en het XML Schema. De volgorde waarin je ze schrijft mag je zelf kiezen - al raden we aan om met het XML Schema te beginnen 
+	(zo kan je tijdens het labo vragen stellen over het moeilijkere deel).</li>
+	<li>Daarna test je de geschreven DTD en XML Schema met het bestand <a href="imdb_fout.xml">imdb_fout.xml</a>. Jouw DTD zou daar 4 fouten moeten vinden, terwijl het 
+	XML Schema 13 fouten zou moeten vinden.</li>
+</ol>
+</p>
+<p>
+De gegevens zijn als volgt gestructureerd:
+<ul>
+<li>Het basiselement is <b>imdb</b></li>
+<li>Het element <b>imdb</b> bevat: 
+	<ul>
+		<li>één element <b>films</b> dat alle gegevens van de films zelf bevat.</li>
+		<li>één element <b>personen</b> dat alle acteurs, actrices en regisseur van de films bevat.</li>
+		<li>één element <b>filmmaatschappijen</b> dat de gegevens bevat van de betrokken filmmaatschappijen.</li>
+	</ul>
+</li>
+</ul>
+Het element <b>filmmaatschappijen</b> heeft volgende structuur:
+<ul>
+<li>Het bevat één of meer elementen van het type <b>filmmaatschappij</b>.</li>
+<li>Het element <b>filmmaatschappij</b> bevat:
+	<ul>
+		<li>één attribuut <b>id</b>.</li>
+		<li>één element <b>naam</b>.</li>
+		<li>nul of één element <b>website</b>.</li>
+	</ul>
+</li>
+</ul>
+Het element <b>personen</b> heeft volgende structuur:
+<ul>
+<li>Het bevat nul of meerdere elementen van het type <b>persoon</b>.</li>
+<li>Het element <b>persoon</b> bevat:
+	<ul>
+		<li>één attribuut <b>id</b>.</li>
+		<li>één element <b>naam</b>.</li>
+		<li>één element <b>geboortedatum</b> van de vorm dd/mm/yyyy.</li>		
+		<li>één element <b>geboorteplaats</b>.</li>
+		<li>één element <b>geslacht</b>, dat de waarde M of V bevat.</li>
+		<li>één element <b>foto</b>, waarvan de waarde steeds eindigt op .jpg.</li>
+	</ul>
+</li>
+</ul>
+Het element <b>films</b> heeft volgende structuur:
+<ul>
+<li>Het bevat nul of meerdere elementen van de types <b>animatiefilm</b> en <b>film</b> in een willekeurige volgorde.</li>
+<li>Het element <b>animatiefilm</b> bevat:
+	<ul>
+		<li>één attribuut <b>id</b>.</li>
+		<li>één attribuut <b>beoordeling</b>, dat de waarde KT of KNT kan aannemen.</li>
+		<li>één element <b>titel</b>.</li>
+		<li>één element <b>cast</b>, waarover later meer.</li>
+		<li>één of meerdere elementen <b>regisseur</b>. Dit element is leeg maar heeft wel een attribuut <b>naam</b> dat verwijst naar het id van een persoon.</li>
+		<li>één element <b>speelduur</b>, waarvan de waarde steeds een positief geheel getal is. 
+		<li>één element <b>maatschappijen</b>, dat een of meer elementen van het type <b>maatschappij</b> bevat.</li>
+	</ul>
+</li>
+</ul>
+Het element <b>maatschappij</b> is leeg, maar heeft wel één attribuut <b>naam</b> dat verwijst naar een filmmaatschappij.<br><br>
+Het element <b>cast</b> heeft volgende structuur:
+<ul>
+	<li>Het bevat één of meerdere elementen van het type <b>personage</b>. Het element <b>personage</b> bevat de naam van het personage en een attribuut <b>acteur</b> dat verwijst naar een persoon.</li>
+</ul>
+Het element <b>film</b> heeft volledig dezelfde structuur als het element <b>animatiefilm</b> alleen bevat film een extra element <b>filmlocatie</b>. 
+<br>
+<br>
+
+<h2>Enkele tips</h2>
+Volgende mogelijkheden heb je om fouten in het <code>.xsd</code>-bestand op te sporen en op te lossen.
+<ul>
+<li> Check en Validate het bestand (contextmenu op het bestand oproepen). Foutmeldingen kunnen langdradig zijn; knip en plak ze in een tekst-document en 
+splits over verschillende regels om overzicht te krijgen. Vergelijk dit met de informatie op de XML Schema cheat sheet. 
+</li>
+<li> Voeg een nieuwe JAXB Binding toe aan het project (net zoals je een nieuw bestand zou toevoegen; zoek bij 'XML'). Dan worden er, op basis van het <code>.xsd</code>-bestand, klassen
+gegenereerd. Die klassen hebben we niet direct nodig, maar je krijgt wel melding van fouten die bij het valideren niet opgespoord worden. Na aanpassingen van het XML Schema kan je 
+de klassen opnieuw laten genereren, maar je verwijdert best eerst alle gegenereerde klassen (eventueel gevolgd door Clean and Build Project).
+</li>
+<li> Je kan in de klassen ook gaan kijken welk type de instantievariabelen gekregen hebben. Staat er (te) dikwijls de klasse <code>Object</code> in plaats van een meer specifieke klasse
+(zoals <code>String</code>), dan kan je best nog een type toevoegen in het XML Schema. Let op: tijdens (of na) een labo kan je tijd spenderen aan details van zodra je het grote plaatje
+in de vingers hebt. Tijdens de labotest van dit vak doe je dit NIET: ofwel zitten de details al in de vingers door het veelvuldige oefenen, ofwel laat je de details achterwege 
+om de grote lijnen eerst te implementeren.
+</li>
+</ul>
+
+Nog een stijltip: de code van een XML Schema kan heel hard genest worden; elementen kunnen binnen elementen binnen elementen binnen elementen... gedeclareerd worden.
+Dit heeft echter gevolgen.
+<ul>
+<li> De code wordt minder goed leesbaar.
+</li>
+<li> Je kan ook de moed verliezen als je nooit eens 'opnieuw' (= aan de kantlijn) mag beginnen.
+</li>
+<li> Elementen die binnen andere elementen gedeclareerd worden, zullen bij het genereren van klassen (via JAXB) als inner classes (binnenklassen) gecodeerd worden.
+Dit is allicht niet wat je wil voor een overzichtelijk project.
+</li>
+</ul>
+Werk dus liever op tijd met het declareren van een zelf te schrijven type, dat komt ook beter uit bij het beperken of uitbreiden van bepaalde types. 
+
+<h2>Afgeven</h2>
+<p>
+Zowel jouw XML Schema als jouw DTD moeten klaar zijn tegen de volgende les. 
+</p>
+
+
+<h2>Extra oefening</h2>
+
+Download het bestand <a href="kledij.xml">kledij.xml</a>. Lees dit, en maak een XML Schema dat de structuur beschrijft die je in het xml-bestand vindt. 
+Omdat een aantal zaken niet onmiddellijk kunnen afgeleid worden uit het xml-bestand, volgen hier nog wat richtlijnen.
+<p>
+<ul>
+<li>De oplijsting van elementen bevat slechts drie mogelijkheden: <b>shirt</b>, <b>hat</b> en <b>umbrella</b>. Ze zijn allemaal van hetzelfde (hoofd)type.
+</li>
+<li>De attributen (<b>routingNum</b>, <b>effDate</b>) en elementen (</b>number</b>,</b>name</b>) die overal voorkomen binnen een <b>shirt</b>-, <b>hat</b>- 
+of <b>umbrella</b>-element zijn verplicht.
+</li>
+<li>Een <b>hat</b>-element bevat verplicht een <b>size</b>-element. Elk niet-negatief getal is geldig als maat.
+</li>
+<li>Een <b>shirt</b>-element bevat verplicht een <b>size-element</b>. Hier is het attribuut <b>system</b> verplicht, en liggen de maten tussen 2 en 6 (grenzen inbegrepen).
+Vertrek van het <b>size</b>-type dat voor het <b>hat</b>-element gebruikt werd.
+</li>
+</ul>
+
+<p>
+<p>
+Test tot slot uit: wordt het xml-bestand correct gevalideerd? Introduceer bewust een aantal fouten in het xml-bestand en ga na of het valideren nu foutmeldingen geeft.
+
+</body>
+</html>

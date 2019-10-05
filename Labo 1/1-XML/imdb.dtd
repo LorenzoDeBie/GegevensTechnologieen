@@ -1,0 +1,53 @@
+<!ELEMENT imdb (films, personen, filmmaatschappijen) >
+
+<!ELEMENT filmmaatschappijen (filmmaatschappij+)>
+
+<!ELEMENT filmmaatschappij (naam, website?)>
+<!ATTLIST filmmaatschappij id ID #REQUIRED>
+
+<!ELEMENT naam (#PCDATA)>
+<!ELEMENT website (#PCDATA)>
+
+<!ELEMENT personen (persoon*)>
+
+<!ELEMENT persoon (naam, geboortedatum, geboorteplaats, geslacht, foto) >
+<!ATTLIST persoon id ID #REQUIRED>
+
+<!ELEMENT geboortedatum (#PCDATA)>
+
+<!ELEMENT geboorteplaats (#PCDATA)>
+
+<!ELEMENT geslacht (#PCDATA)>
+
+<!ELEMENT foto (#PCDATA) >
+
+<!ELEMENT films ( animatiefilm | film )* >
+
+<!ELEMENT animatiefilm (titel, cast, regisseur+, speelduur, maatschappijen) >
+<!ATTLIST animatiefilm
+        id ID #REQUIRED
+        beoordeling (KT | KNT) #REQUIRED>
+
+<!ELEMENT maatschappijen (maatschappij+)>
+
+<!ELEMENT maatschappij EMPTY>
+<!ATTLIST maatschappij naam IDREF #REQUIRED>
+
+<!ELEMENT cast (personage+)>
+
+<!ELEMENT personage (#PCDATA)>
+<!ATTLIST  personage acteur IDREF #REQUIRED>
+
+<!ELEMENT titel (#PCDATA)>
+
+<!ELEMENT regisseur EMPTY>
+<!ATTLIST regisseur naam IDREF #REQUIRED>
+
+<!ELEMENT speelduur (#PCDATA)>
+
+<!ELEMENT film (titel, cast, regisseur+, speelduur, maatschappijen, filmlocatie)>
+<!ATTLIST film id ID #REQUIRED beoordeling (KT | KNT) #REQUIRED >
+
+<!ELEMENT filmlocatie (#PCDATA)>
+
+

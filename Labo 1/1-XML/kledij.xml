@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Definitive XML Schema by Priscilla Walmsley (c) 2012 Prentice Hall PTR -->
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="kledij.xsd"
+       xmlns:xhtml="http://www.w3.org/1999/xhtml"
+       xmlns:oth="http://example.org/oth">
+        
+  <shirt routingNum="462534" effDate="2002-04-02">
+    <number>557</number>
+    <name>Short-Sleeved Linen Blouse</name>
+    <description>
+      This shirt is the best-selling shirt in
+      our catalog! Note: runs large.
+    </description>
+    <size system="US-DRESS">6</size>
+    <color value="blue"/>
+  </shirt> 
+  <hat routingNum="123456" effDate="2002-04-02" lang="en-US">
+    <number>557</number>
+    <name>Ten-Gallon Hat</name>
+    <description>This is a great hat!</description>
+    <size system="US-hat">10</size>
+  </hat>
+  <hat routingNum="123454" effDate="2002-06-02">
+    <number>559</number>
+    <name>Twelve-Gallon Hat</name>
+    <size>12</size>
+  </hat>
+  <umbrella routingNum="14431" effDate="2010-10-10">
+    <number>443</number>
+    <name>Deluxe Golf Umbrella</name>
+  </umbrella>
+  <shirt routingNum="12485" effDate="2010-11-09" sleeve="19">
+    <number>558</number>
+    <name>Long-Sleeved Linen Blouse</name>
+    <color value="blue"/>
+    <size system="US-DRESS">6</size>
+    <color value="red"/>
+    <color value="pink"/>
+    <size system="US-DRESS">3</size>
+    <size system="US-DRESS">5</size>
+  </shirt>
+</items>

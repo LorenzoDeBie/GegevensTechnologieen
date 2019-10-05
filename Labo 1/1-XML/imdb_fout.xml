@@ -3,7 +3,7 @@
 <!DOCTYPE imdb SYSTEM
         "C:\Users\Lorenzo De Bie\OneDrive\Universiteit Gent\3e BACH\Gegevenstechnologiën\Labo\Labo 1\1-XML\imdb.dtd">
 <imdb>
-<!-- <imdb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="imbdScheme.xsd"> -->
+<!--<imdb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="imdb.xsd">-->
     <films>
         <film id="MPATHG" beoordeling="KT">
             <titel>Monty Python and the Holy Grail</titel>
