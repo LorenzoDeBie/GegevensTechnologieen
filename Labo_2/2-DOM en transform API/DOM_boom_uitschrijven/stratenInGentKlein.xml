@@ -1,0 +1,12 @@
+<root>
+    <element>
+        <postcode>9032</postcode>
+        <straatnaam taal="nederlands" afgekort="false">Aalbessenlaan</straatnaam>
+        <onpaar_van></onpaar_van>
+    </element>   
+    <element>
+        <postcode>9000</postcode>
+        <straatnaam taal="nederlands" afgekort="true">Zwijnaardsestw</straatnaam>
+        <onpaar_van>187</onpaar_van>
+    </element>
+</root>

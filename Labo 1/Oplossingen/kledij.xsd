@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<xsd:schema version="1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+  <xsd:element name="items" type="ItemsType"/>
+
+  <xsd:complexType name="ItemsType">
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="shirt" type="ProductTypeShirt"/>
+      <xsd:element name="hat" type="ProductTypeHat"/>
+      <xsd:element name="umbrella" type="ProductType"/>
+    </xsd:choice>
+  </xsd:complexType>
+
+  <!-- Element-only content -->
+  <xsd:complexType name="ProductType">
+    <xsd:sequence>
+      <xsd:element name="number" type="xsd:integer"/>
+      <xsd:element name="name" type="xsd:string"/>
+      <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute  name="effDate" type="xsd:date"
+                    default="1900-01-01"/>
+    <xsd:attribute name="lang" type="xsd:language"/>
+    <xsd:attribute name="routingNum" type="xsd:integer"/>
+  </xsd:complexType>
+  
+  
+
+  <!-- Simple content -->
+  <xsd:complexType name="SizeType">
+    <xsd:simpleContent>
+      <xsd:extension base="xsd:integer">
+        <xsd:attribute name="system" type="xsd:token"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- Empty content -->
+  <xsd:complexType name="ColorType">
+    <xsd:attribute name="value" type="xsd:string"/>
+  </xsd:complexType>
+
+
+  <!-- Simple Content Restriction-->
+  <xsd:complexType name="SmallSizeType">
+    <xsd:simpleContent>
+      <xsd:restriction base="SizeType">
+        <xsd:minInclusive value="2"/>
+        <xsd:maxInclusive value="6"/>
+        <xsd:attribute  name="system" type="xsd:token"
+                        use="required"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+
+  <!-- Complex Content Extension-->  
+  <xsd:complexType name="ProductTypeShirt">
+    <xsd:complexContent>
+      <xsd:extension base="ProductType">
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="size" type="SmallSizeType"/>
+          <xsd:element name="color" type="ColorType"/>
+        </xsd:choice>
+        <xsd:attribute name="sleeve" type="xsd:integer"/>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+
+  <xsd:complexType name="ProductTypeHat">
+    <xsd:complexContent>
+      <xsd:extension base="ProductType">
+         <xsd:sequence>
+            <xsd:element name="size" type="SizeType"/>
+         </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+</xsd:schema>

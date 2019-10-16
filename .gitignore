@@ -328,3 +328,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
+
+# Intellij out folder
+out/
+
+# ufora style sheets
+uforaTiwiStijl.css

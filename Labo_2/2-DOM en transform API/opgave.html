@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../uforaTiwiStijl.css"/>
+	<title>Labo 02: DOM en XSLT API</title>
+</head>
+    <BODY>
+	
+		<p> In dit labo wordt een XML-bestand op verschillende manieren gebruikt en verwerkt. In opdracht 0 gebruiken we een klein XML-bestand; 
+		voor de eigenlijke opdrachten gebruiken we een bestand waarin alle straten van Stad Gent staan: <a href="stratenInGent.xml">stratenInGent.xml</a>.
+	
+	    <h2>Opdracht 0</h2>
+		De eerste oefening is een introductie voor wie graag een visuele weergave wil van de structuur van een DOM-document. Oordeel zelf of je dit nuttig vindt, of liever meteen naar de eigenlijke opdrachten overstapt. 
+		<p>
+		Gegeven het project <a href="DOM_boom_uitschrijven.zip">DOM_boom_uitschrijven</a>. De klasse Boom implementeert een zeer eenvoudige boomstructuur: elke knoop (of element) heeft een waarde en een aantal 
+		(of geen) kinderen.
+		De <samp>toString</samp>-methode gebruikt een recursieve hulpfunctie om de boom leesbaar uit te schrijven. 
+		Bestudeer de code (let op de extra parameter <samp>niveau</samp>), laat het hoofdprogramma <samp>Main</samp> lopen, en kijk na of je de structuur van de boom begrijpt.
+		<p>
+		Gebruik nu dit principe om de klasse <samp>DOMBoom</samp> uit te werken. Een object van deze klasse leest bij constructie een XML-bestand in en parset dit naar een Document-object. 
+		De <samp>toString</samp>-methode geeft nadien een leesbare weergave van de Document-structuur. Van elk element uit de structuur wordt minimaal de naam en de waarde uitgeschreven 
+		(zorg dat het duidelijk is wat de naam en wat de waarde is). Let op:
+		<ul>
+		<li> Schrijf tekst nooit uit zonder de grenzen duidelijk af te bakenen. Hoe zie je anders het verschil tussen een lege string, een spatie, een tab of een newline? Dus gebruik
+		     <pre>
+resultaat += "*" + str + "*";			 </pre> om de variabele <samp>str</samp> uit te schrijven.
+		</li> 
+		<li> Vergelijk het XML-bestand <samp>"stratenGentKlein.xml"</samp> met de visueel weergegeven Document-structuur. Vind je alle informatie terug (<samp>root</samp>, <samp>9032</samp>, <samp>taal nederlands</samp>, 
+		<samp>Aalbessenlaan</samp>, <samp>187</samp>)? 
+		</li>
+		</ul>
+				
+        <h2>Opdracht 1</h2>
+		
+		
+		In deze opdracht gebruiken we een XML-bestand als datalaag voor een GUI. 
+        <p>De <a href="Straten_deel1_swing_start.zip">GUI</a> is reeds geschreven en heeft voorlopig een dummyobject als datalaag. 
+		Om de structuur van dit object (en de gebruikte klassen) sneller te doorgronden, gebruik je onderstaand UML-diagram.</p>
+		<img src="stratenUML.png" alt="UML-diagram">
+		<p>
+		Vervang het dummyobject door een object dat zijn gegevens uit het XML-bestand <a href="stratenInGent.xml">stratenInGent.xml</a> haalt. 
+		De klasse van dit object is reeds deels geschreven: <b><code>XMLGemeente</code></b>.
+		Bestudeer de code die reeds gegeven is; je zal iets gelijkaardigs nodig hebben in opdracht 2 van dit labo. 
+		Vul nu aan waar gevraagd: gebruik het DOM-principe om het XML-bestand volledig in te lezen.
+		<p>
+        <img src="stratenGUI.png" alt="screenshot GUI">
+        <h2>Extra - enkel te implementeren na afwerken van opdracht 2.</h2>
+        <p>Je merkt dat de stadsdelen, wijken en straten niet alfabetisch gesorteerd zijn. Hoe zou je dat kunnen oplossen?</p>
+		<img src="stratenGUI2.PNG" alt="screenshot GUI">
+	
+	
+		<h2>Opdracht 2</h2>
+	
+		Voor de tweede opdracht maak je een nieuw leeg project aan. Zorg dat het XML-bestand (met de straten van Gent) hierin beschikbaar is.
+		Je krijgt tevens een XML-Schema, <a href="stratenPerPostcode.xsd">stratenPerPostcode.xsd</a>, waarin een andere structuur vastgelegd wordt
+		voor XML-bestanden met hetzelfde onderwerp als het gekende XML-bestand: straten, wijken, stadsdelen,...
+		Bedoeling is om het gekende stratenbestand om te vormen naar een nieuw XML-bestand dat voldoet aan die nieuwe structuur. 
+		<p> Schrijf nu een programma dat het XML-bestand <a href="stratenInGent.xml">stratenInGent.xml</a> inleest. Baseer je op de vorige opdracht waar nuttig.
+		Daarna maakt dit programma een nieuw DOM-object aan voor het nieuwe XML-bestand, dat dan met behulp van de Transform-API weggeschreven wordt
+		naar een nieuwe bestand dat voldoet aan het opgegeven XML schema. Het resultaat (of toch de start daarvan) vind je hieronder.</p>
+		Controleer of je resultaat voldoet aan het opgegeven XML schema.</p>
+		<img src="stratenPerPostcode.png" />
+	
+	
+    </BODY>
+</HTML>
