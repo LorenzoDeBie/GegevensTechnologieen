@@ -1,0 +1,36 @@
+<!DOCTYPE HTML> 
+<HTML>
+    <HEAD>
+        <TITLE>Labo 5: SAX, DOM, JAXB, XSLT</TITLE>
+    </HEAD>
+
+    <BODY>
+
+        <h2>SAX en JAXB</h2>
+        <p>In dit labo transformeren we het <a href="stratenInGent.xml">XML-bestand</a> met de 
+        straten van Stad Gent met SAX en JAXB. 
+        
+        <p>
+            Schrijf een programma dat het stratenbestand omvormt naar een XML-bestand dat
+            voldoet aan de structuur beschreven in <a href="stratenPerStadsdeel.xsd">stratenPerStadsdeel.xsd</a>. De figuur toont een voorbeeld van een deel van 
+            het nieuwe XML-bestand.
+			<p>
+			Een paar tips:
+			<ul>
+			<li>
+            Het programma leest de XML in gebruik makend van de SAX API in Java. 
+			</li>
+			<li>
+			Het aanmaken van de nieuwe XML doe je met JAXB. Dit wil zeggen dat je in de Contenthandler, JAXB-objecten aanmaakt die je dan met een marshaller uitschrijft 
+            naar een bestand.
+			</li>
+			<li>
+			De klassen waartoe die JAXB-objecten behoren, kan je genereren aan de hand van het gegeven XML-Schema <samp>stratenPerStadsdeel.xsd</samp>.
+			Daartoe voeg je een nieuwe JAXB-binding toe aan het project (net zoals je een nieuw java-bestand toevoegt). Allicht moet je nog een of andere bibliotheek toevoegen. 
+			<!--Lukt dit niet binnen de tien minuten, vraag er dan &eacute;&eacute;n van de lesgevers bij - misschien moet de oorzaak verder gezocht worden.-->
+			</li>
+			</p>
+        <img src="stratenPerStadsdeel1.png">
+
+            </BODY>
+</HTML>
