@@ -1,0 +1,166 @@
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../uforaTiwiStijl.css"/>
+	<title>Labo 07: JDBC met RowSets</title>
+</head>
+    <body>
+        <h1> JDBC </h1>
+        <p>
+            In dit labo werken we verder op de opgave van vorige week - van zodra die volledig af is.
+			
+        </p>
+		<h2>Startsituatie</h2>
+		Zorg dat het programma MAMP opgestart is en beide servers (Apache en MySQL) draaien.
+		
+		
+        <h2>Aanpassen van de databank</h2>
+		Voor de komende opdrachten hebben we minstens &eacute;&eacute;n datatable nodig die zo ingesteld is dat de keys automatisch gegenereerd worden bij toevoegen van
+		een nieuwe rij. Ook een kolom van type 'Date' is welkom, zodat er geoefend kan worden op de juiste omzettingen tussen java.util.Date en java.sql.Date.
+		Daarom leveren we jullie een nieuw script en twee nieuwe bestanden met gegevens. 
+        <ol>
+            <li><p>
+			Download het bestand <a href="databank_extra.zip">databank_extra.zip</a> en 
+            unzip het bestand. Dit bestand bevat een script om de databank aan te passen 
+			(de tabellen <code>employees</code> en <code>offices</code> worden verwijderd en opnieuw aangemaakt met nieuwe eigenschappen)
+            en twee txt-bestanden om deze twee tabellen in de databank opnieuw te vullen.
+            </li>
+            <li><p>Klik op <b>"Open start page"</b> in MAMP en selecteer het menu <b>Tools --> phpMyAdmin</b>.
+                <!--<img src="keuzeMenu.png" alt="kies het juiste menu" width="700">-->
+            <li><p>Ga naar het tabblad <b>"Import"</b>, via "More", en 
+                importeer het bestand <code>create_classicmodels_extra.sql</code>.
+                <!--<img src="importTab.png" alt="tabblad Import"  width="700"><br>-->
+                Controleer dat de tabellen <code>offices</code> en <code>employees</code> nu leeg zijn.				
+            </li>
+            <li><p>Selecteer links de tabel <code>employees</code> en ga opnieuw naar
+            het tabblad "Import". Browse op je computer naar het bestand <b>employees_extra.txt</b>. 
+			Kies als formaat "CSV using LOAD DATA", verander
+            de ";" in een "," bij de keuze "Columns separated with:" en vink
+            "Use LOCAL keyword" aan. Druk op "Go" om het bestand op te laden. 
+            De tabel <code>employees</code> is nu opgevuld. <br>
+			<b>Tip</b> De eerste keer dat je deze actie onderneemt, staat de keuze "CSV using LOAD DATA" er misschien niet bij. Voer uit met "CSV". 
+			Herhaal nadien het selecteren van het bestand en het toevoegen; nu zou de keuze "CSV using LOAD DATA" er wel bij moeten staan.            
+			</li>
+			<li><p>Selecteer links de tabel <code>offices</code> en herhaal het opvullen met het bestand <b>offices_extra.txt</b>. 
+			</li>
+			<li><p>
+			Controleer of beide tabellen opgevuld zijn. Vind je 'Ghent' tussen de offices?
+			</li>
+        </ol>
+		
+		<h2>Aanpassen van het project</h2>
+		Om de connectie met de databank te kunnen realiseren, heb je vorige week een jar toegevoegd. Ondertussen is gebleken dat deze oudere versie niet samenwerkt met
+		<code>RowSets</code>, het onderwerp van deze les. Dus haal <code>mysql-connector-java-8.0.13.jar</code> uit je project, en voeg de recentere jar toe: 
+		<a href="mysql-connector-java-8.0.18.jar">mysql-connector-java-8.0.18.jar</a>. Let op, niet gewoon klikken (Ufora maakt er een onbruikbare zip van), maar met rechtermuis
+        "Link opslaan als..." kiezen.		
+        
+        <h2>Opdracht</h2>
+        <p>
+            Werk verder in het project van vorige week. Onderstaande opdrachten moeten uitgevoerd worden met <code>RowSets</code> (<code>CachedRowSet</code> en 
+			<code>JoinRowSet</code>). Eventueel werk je in een afgeleide klasse van <code>JDBCDataStorage</code>, als je de nieuwe code apart wil houden.
+			Dan kan je onderstaande startcode overnemen.
+			<pre>public class JDBCDataStorageRowSets extends JDBCDataStorage {
+
+    private RowSetFactory myRowSetFactory;
+    private CachedRowSet officesRowSet;            // primary key niet aanwezig 
+    private CachedRowSet wijzigbareOfficesRowSet;  // primary key aanwezig
+    private CachedRowSet wijzigbareEmployeesRowSet;// primary key aanwezig
+		
+    public int countOffices(){return 0;}
+    public void addOffice(addressline1,addressline2,city,country,phone,postalcode,state,territory){}
+    public void wijzigOfficeDate(officeCode,date){}
+    public void bewaarAlles(){}
+    public Map&lt;String,Set&lt;String>> mailsPerCity(){return null;}
+</pre>
+			
+	Enige toelichting bij de instantievariabelen en methodes.
+
+<ol>
+<li> <p>De instantievariabele <code>officesRowSet</code> zal alle offices uit de databank in de rowset bewaren, maar zal geen primary keys mee binnentrekken.
+De reden daarvoor: de datatable <code>offices</code> is nu zo in gesteld dat primary keys automatisch gegenereerd worden (bekijk het script <code>create_classicmodels_extra</code>, 
+daar vind je <code>AUTO_INCREMENT</code>). Als er een rij toegevoegd wordt, mag er dus nog geen primary key aanwezig zijn: de databank zal daar immers zelf voor zorgen bij het 
+updaten van de informatie.
+</p></li>
+<li><p>De instantievariabele <code>wijzigbareOfficesRowSet</code> bevat wel de primary key. Als we de gegevens van een bepaalde office willen wijzigen, dan zullen we ons baseren
+op zijn primary key (in casu <code>officeCode</code>) om de juiste rij aan te passen. 
+<b>Tip</b> Als een rowset de primary key van de tabel bevat, vergeet dan de <code>keyColumns</code> niet in te stellen.
+</p></li>
+<li><p>Voor de laatste instantievariabele <code>wijzigbareEmployeesRowSet</code> kozen we ervoor om de primary key ook te bewaren, al is het hier niet echt nodig
+(toch niet voor de methodes die gevraagd worden; wel voor een eventuele uitbreiding).
+</p></li>
+<li><p>De methode <code>int countOffices()</code> zal het aantal offices in de databank tellen. Dit is een eerste stap om te controleren of je inderdaad informatie uit de 
+databank kan ophalen.
+</p></li>
+<li><p>De methode <code>void addOffice(addressline1,addressline2,city,country,phone,postalcode,state,territory)</code> voegt een office toe aan de databank, met de gegeven 
+informatie. (Er is geen specifieke reden waarom we geen object <code>Office</code> gebruiken, behalve dan dat de interface <code>IOffice</code> en klasse <code>Office</code>
+nog niet in je project voorzien zijn. Dus een quick-and-dirty-trick om de aandacht niet van de hoofdzaken af te leiden.) 
+<p>
+Na uitvoeren van deze methode is de databank zelf nog niet aangepast, enkel de betreffende CachedRowSet. Om de wijzigingen ook effectief door te voeren,
+implementeer je de methode <code>bewaarAlles()</code> (zie verderop). Ben je klaar om uit te testen? Onderaan de opgave vind je een voorbeeld van hoofdprogramma.
+</p></li>
+<li><p>De methode wijzigOfficeDate(officeCode,date)</code> geeft de stichtingsdatum (<code>establishedIn</code>) van de office met code <code>officeCode</code> een nieuwe waarde.
+Let op: de parameter is van type <code>java.util.Date</code>, terwijl het type in de databank <code>java.sql.Date</code> is. 
+Vergelijk de constructor van de klasse <code>java.sql.Date</code> met de methode <code>getTime()</code> van <code>java.util.Date</code>. 
+Gebruik de klassen <code>DateFormat</code> en <code>SimpleDateFormat</code> indien nodig. En test uit met een datum die niet te symmetrisch is: 
+dus niet <code>"2000-01-01"</code> maar <code>"2000-01-31"</code>.        
+</p></li>
+<li><p>
+De methode <code>bewaarAlles</code> zorgt dat alle informatie die tot dan toe gewijzigd werd in alle rowsets, doorgestuurd wordt naar de databank. 
+<br/>Bij het oproepen van de methode <code>acceptChanges</code> op een rowset krijg je vermoedelijk de foutmelding
+<br/><code>"javax.sql.rowset.spi.SyncProviderException: Can''t call commit when autocommit=true"</code>
+<br/>
+Ondanks deze foutmelding zal de databank toch goed opgevuld zijn (controleer!). Wil je de foutmelding weg, dan vind je wat uitleg en een work-around op
+<a href="https://stackoverflow.com/questions/15530266/getting-cannot-commit-when-autocommit-is-enabled-exception-while-working-with">stackoverflow</a>.
+Dit komt neer op:
+<pre>
+            try (Connection con = DriverManager.getConnection(url,login,password)){ // vul drie parameters nog zelf in
+                con.setAutoCommit(false);
+                myRowSet.acceptChanges(con);
+            }
+</pre>
+</p></li>
+<li><p>De laatste methode <code>Map&lt;String,Set&lt;String>> mailsPerCity()</code> is een <b>extra opgave</b>, hiervoor heb je de klasse <code>JoinRowSet</code> nodig. 
+De methode geeft alle mailadressen van employees terug, verzameld per stad waarin hun office ligt.
+</p></li>
+<li><p>Voor wie er niet genoeg van krijgt, een bonus bovenop de extra opgave: probeer aan de hand van diezelfde <code>JoinRowSet</code> alle emailadressen te wijzigen.
+Het emailadres van elke employee heeft nu de vorm <code>"naam@classicmodelcars.com"</code>. Wijzig dit, zodat de stad waarin de employee werkzaam is nu ook in het emailadres
+te lezen valt, bijvoorbeeld <code>"naam@Ghent.classicmodelcars.com"</code>. Kan je de databank aanpassen? (Via de JoinRowSet is dit niet evident. Helpt een omweg via een 
+CachedRowSet?)
+</p></li>
+</ol>
+
+
+<h2>Een mogelijk hoofdprogramma</h2>
+<pre>
+
+
+    public static void main(String[] args) {
+        try {
+            JDBCDataStorageRowSets database = new JDBCDataStorageRowSets();
+            
+            System.out.println("aantal offices: "+database.countOffices());
+            database.addOffice("a","b","c","d","e","f","g","h");
+            database.addOffice("A","B","C","D","E","F","G","H");   
+            
+            database.wijzigOfficeDate(1,new Date());
+            // Controleer zelf of 1999 in de datum van vandaag veranderd werd
+            // Pas het hoofdprogramma zo aan dat niet de huidige dag, maar 31 januari 2000 gebruik wordt.
+            // Werd dit juist aangepast in de databank? 
+            // Vind je "2000-01-31" terug of toch een andere datum??
+            
+            database.changeEmailAdresses(); // laat dit weg als je de bonusvraag niet oplost.
+            
+            database.bewaarAlles();           
+            System.out.println("NA TOEVOEGEN, aantal offices: "+database.countOffices());
+            
+            Map&lt;String,Set&lt;String>> mailsPerCity = database.mailsPerCity(); // laat dit weg als je de extra vraag niet oplost
+            System.out.println(mailsPerCity);                               //
+            
+        } catch (Exception ex) {
+            System.out.println("HOOFDPROGR:"+ex.getMessage());
+        }
+
+    }
+	</pre>
+    </body></html>
+
+
