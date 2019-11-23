@@ -1,0 +1,108 @@
+<html><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="../uforaTiwiStijl.css"/>
+	<title>Labo 06: JDBC </title>
+</head>
+    <body>
+        <h1> JDBC </h1>
+        <p>
+            In dit labo zullen we een applicatie ontwikkelen die analoog is 
+            aan diegene die we hebben gemaakt 
+            tijdens het labo van ADO.NET, maar nu zullen we een andere 
+            technologie, JDBC, en een andere databank, mysql, gebruiken. 
+        </p>
+        <h2>Opzetten van de databank</h2>
+        <ol>
+            <li> <p>Start het programma MAMP 
+                    (<img src="mamp-pro.png" alt="logo MAMP" width="15">) en zorg 
+                    ervoor dat de beide servers (Apache en MySQL) draaien.</p>
+                <img src="MAMPopgestart.png" alt="MAMP opgestart" width="300"></li>
+            </li>Download het bestand <a href="databank.zip">databank.zip</a> en 
+            unzip het bestand. Dit bestand bevat een script om de databank aan te maken
+            en meerdere txt-bestanden om de tabellen in de databank op te vullen.
+        </li>
+            <li>Klik op <b>"Open start page"</b> in MAMP en selecteer het menu <b>Tools --> phpMyAdmin</b>.<br>
+                <img src="keuzeMenu.png" alt="kies het juiste menu" width="700">
+            <li>Ga naar het tabblad <b>"Import"</b>, via "More", en 
+                importeer het bestand <code>create_classicmodels.sql</code> uit de map scripts.<br>
+                <img src="importTab.png" alt="tabblad Import"  width="700"><br>
+                Het script maakt 7 tabellen aan: <code>customers</code>, 
+                <code>employees</code>, <code>offices</code>, <code>orderdetails</code>, 
+                <code>orders</code>, <code>payments</code> en <code>products</code>.
+            </li>
+            <li>Selecteer links de tabel <code>customers</code> en ga opnieuw naar
+            het tabblad "Import". Browse op je computer naar het bestand <b>Customers.txt</b>
+            in de map datafiles. Kies als formaat "CSV using LOAD DATA", verander
+            de ";" in een "," bij de keuze "Columns separated with:" en vink
+            "Use LOCAL keyword" aan. Druk op "Go" om het bestand op te laden. 
+            De tabel "customers" is nu opgevuld. <br>
+            <img src="optiesImporteren.png" alt="opties bij het importeren" width="500">
+        </li>
+        <li>Doe hetzelfde voor de andere tabellen.</li>
+        </ol>
+        <!--<p>Maak in het tabblad Services in Netbeans een nieuwe Java DB-databank aan met de volgende instellingen. 
+            <ul>
+                <li>naam: classicmodels</li>
+                <li>login: iii</li>
+                <li>wachtwoord: iiipwd</li>
+            </ul>
+            Maak de databank en tabellen aan:
+<ul>
+   <li>Download het bestand <a href="databank.zip">databank.zip</a> en unzip het bestand in C:\temp.</li>
+   <li>Open het bestand <code>C:\\temp\\scripts\\create_classicmodels.sql</code> in Netbeans en voer het uit op de net aangemaakte databank.Selecteer bovenaan de juiste "Connection" en klik op het icoon naast de keuzelijst. (zie figuur)</li>
+   <li>Open het bestand <code>C:\\temp\\scripts\\load_classicmodels.sql</code>in Netbeans en voer het uit op de net aangemaakte databank </li> 
+   <img src="script.png">
+</ul> -->
+Het gegevensbanksysteem is nu opgestart en opgevuld met gegevens. 
+        <h2>Opdracht</h2>
+        <p>
+            <a href="ClassicModelsJDBC.zip">Hier</a> vind je een console-applicatie die je 
+            nog moet aanvullen zodat volgende acties uitgevoerd worden op de opgezette databank:  
+        <ul>
+            <li>Een lijst van alle producten tonen.</li>
+            <li>Een lijst van alle orders tonen van een bepaalde klant.</li>
+            <li>Een nieuw order inclusief orderdetails toevoegen aan de databank. Zorg ervoor dat wanneer 
+                het toevoegen van het order met orderdetails mislukt, de databank terugkeert naar de toestand 
+                voor het uitvoeren van de query.</li>
+
+    <li>Een customer aanpassen</li>
+        </ul>
+        <p>
+            Daarvoor heb je volgende queries nodig:
+            <code>
+                <ul>
+                    <li>select * from Products</li>
+                    <li>select * from Orders where customerNumber=...</li>
+                    <li>insert into Orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (...,...,...,...,...,...,...)</li>
+                    <li>insert into OrderDetails (orderNumber,productCode,quantityOrdered,priceEach,orderLineNumber) values (...,...,...,...,...)</li>
+                    <li>update Customers set customerName=...,contactLastName=...,contactFirstName=...,phone=...,addressLine1=...,addressLine2=...,city=...,state=...,postalCode=...,country=...,salesRepEmployeeNumber=...,creditLimit=... where customerNumber=...</li>
+                </ul>
+            </code>
+            Om de connectie met de databank te kunnen realiseren, heb je 
+            een driver nodig; deze kan je <a href="mysql-connector-java-8.0.13.jar">hier</a> vinden. Voeg de jar aan je project toe. 
+        <p>
+            De applicatie voldoet aan volgende eisen:
+        <ul>
+            <li>Geschreven in Java</li>
+            <li>Alle nodige query's komen uit een configuratiebestand. Je kan dan uit zo'n properties bestand lezen  
+                met hulp van een ResourceBundle. </li>
+            <li>Zorg dat je applicatie beschermd is tegen SQL-injectie.</li>
+            <li>Zorg voor een goede foutafhandeling.</li>
+            <li>Zorg dat je connectie steeds correct wordt afgesloten.</li>
+        </ul>
+        
+        <h2>Tips</h2>
+        <p>
+        <ul>
+            <li>Bekijk het installatiescript of de phpMyAdmin-webapp om de naam van de databank en de gebruiker te kennen.</li>
+            <li>"No suitable driver found"? Vergeet de juiste driver niet toe te voegen.        
+            </li>
+            <li>Krijg je een fout ivm de tijdszone? Voeg "?serverTimezone=UTC" toe aan je JDBC-url.</li>
+            <li>Vergelijk de constructor van de klasse <code>java.sql.Date</code> met de methode <code>getTime()</code> van <code>java.util.Date</code>. Gebruik de klassen <code>DateFormat</code> en <code>SimpleDateFormat</code> indien nodig.
+        
+            </li>
+        </ul>
+        
+    </body></html>
+
+
