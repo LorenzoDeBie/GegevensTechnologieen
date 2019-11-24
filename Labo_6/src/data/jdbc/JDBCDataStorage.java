@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class JDBCDataStorage implements IDataStorage {
 
-    private final ResourceBundle sqlOpdrachten;
-    private final ResourceBundle databaseConfig;
+    protected final ResourceBundle sqlOpdrachten;
+    protected final ResourceBundle databaseConfig;
 
     public JDBCDataStorage() {
         sqlOpdrachten = ResourceBundle.getBundle("data.jdbc.sql");
@@ -134,9 +134,12 @@ public class JDBCDataStorage implements IDataStorage {
     public boolean addOrder(IOrder order) throws DataExceptie {
         //TODO: maybe check if order exists first and return false when it does?
         try {
-            try(Connection conn = getConnection()) {
+            Connection conn = getConnection();
+            try {
+                conn.setAutoCommit(false);
                 // add order first because foreign key on ordernumber with details
                 addOrder(conn, order);
+                conn.commit();
                 //TODO: undo add order when any of these fail?
                 for (IOrderDetail detail :
                         order.getDetails()) {
@@ -147,6 +150,14 @@ public class JDBCDataStorage implements IDataStorage {
                         throw new DataExceptie("Orderdetail not part of order!");
                     }
                 }
+            }
+            catch (SQLException ex) {
+                conn.rollback();
+                throw ex;
+            }
+            finally {
+                conn.setAutoCommit(true);
+                conn.close();
             }
         }
         catch (SQLException ex) {
@@ -204,7 +215,7 @@ public class JDBCDataStorage implements IDataStorage {
 //        return resultaat;
 //    }
 
-    private Connection getConnection() throws SQLException {
+    protected Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseConfig.getString("URL"),
                 databaseConfig.getString("LOGIN"),
                 databaseConfig.getString("PASSWORD"));
