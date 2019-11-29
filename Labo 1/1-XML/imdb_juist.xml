@@ -2,85 +2,563 @@
 
 <!--<!DOCTYPE imdb SYSTEM "imdb.dtd">
 <imdb> -->
-<imdb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="imbdScheme.xsd">
-    <filmmaatschappijen>
-        <filmmaatschappij id="WALTDISNEYPICTURES">
-            <naam>Walt Disney Pictures</naam>
-            <website>disney.go.com/DisneyPictures</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="BLUESKYSTUDIO">
-            <naam>Blue Sky Studio</naam>
-            <website>www.blueskystudios.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="CASTLEROCK">
-            <naam>Castle Rock Entertainment</naam>
-            <website>www.lonestar-movie.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="NEWLINE">
-            <naam>New Line Cinema</naam>
-            <website>www.newline.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="MIRAMAX">
-            <naam>Miramax Films</naam>
-            <website>www.miramax.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="LEGENDARYPICTURES">
-            <naam>Legendary Pictures</naam>
-            <website>www.legendarypictures.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="PARAMOUNTVANTAGE">
-            <naam>Paramount Vantage</naam>
-            <website>www.paramountvantage.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="FAVOURITEFILMS">
-            <naam>Favourite Films</naam>
-            <website>www.favouritefilms.be/portal/index.htm</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="CECCHIGORIGROUPTIGERCINEMATOGRAFICA">
-            <naam>Cecchi Gori Group Tiger Cinematografica </naam>
-            <website>www.rarenaam.be</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="REGENCYENTERPRICES">
-            <naam>New Regency Enterprices</naam>
-            <website>www.newregency.com/</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="MMG">
-            <naam>MMG Film &amp; TV Productions</naam>
-            <website>www.mmg.be/</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="WARNERBROS">
-            <naam>Warner Bros. Pictures</naam>
-            <website>www.nl.warnerbros.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="DREAMWORKS">
-            <naam>DreamWorks</naam>
-            <website>www.dreamworks.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="TWENTIETHCENTURYFOX">
-            <naam>20th Century Fox</naam>
-            <website>www.foxfilm.nl</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="PARAMOUNT">
-            <naam>Paramount Pictures</naam>
-            <website>www.paramount.nl</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="LUCASFILM">
-            <naam>Lucasfilm</naam>
-            <website>www.lucasfilm.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="SOGECINE">
-            <naam>Sogecine</naam>
-            <website>www.sogecine-sogepaq.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="UNITEDARTISTS">
-            <naam>United Artists</naam>
-            <website>www.unitedartists.com</website>
-        </filmmaatschappij>
-        <filmmaatschappij id="MICHAELWHITE">
-            <naam>Michael White Productions</naam>
-            <website>michaelwhiteproductions.com</website>
-        </filmmaatschappij>
-    </filmmaatschappijen>
+<imdb xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="imdbScheme2.xsd">
+    <films>
+        <film id="MPATHG" beoordeling="KT">
+            <titel>Monty Python and the Holy Grail</titel>
+            <cast>
+                <personage acteur="GCHAPMAN">
+                    King Arthur
+                </personage>
+                <personage acteur="GCHAPMAN">
+                    Voice of God
+                </personage>
+                <personage acteur="GCHAPMAN">
+                    Middle Head
+                </personage>
+                <personage acteur="GCHAPMAN">
+                    Hiccoughing Guard
+                </personage>
+                <personage acteur="JCLEESE">
+                    The Black Knight
+                </personage>
+                <personage acteur="JCLEESE">
+                    Sir Lancelot, the Brave
+                </personage>
+                <personage acteur="JCLEESE">
+                    Taunting French Guard
+                </personage>
+                <personage acteur="JCLEESE">
+                    Tim the Enchanter
+                </personage>
+                <personage acteur="EIDLE">
+                    Sir Robin the Not-Quite-So-Brave-as-Sir Launcelot
+                </personage>
+                <personage acteur="EIDLE">
+                    Dead Collector
+                </personage>
+                <personage acteur="EIDLE">
+                    Roger the Shrubber
+                </personage>
+            </cast>
+            <regisseur naam="TJONES"/>
+            <speelduur>91</speelduur>
+            <maatschappijen>
+                <maatschappij naam="MICHAELWHITE"/>
+            </maatschappijen>
+            <filmlocatie>
+                Appin, Argyll, Scotland, UK
+            </filmlocatie>
+        </film>
+        <animatiefilm id="TI" beoordeling="KT">
+            <titel>The Incredibles</titel>
+            <cast>
+                <personage acteur="CNELSON">
+                    Bob Parr
+                </personage>
+                <personage acteur="CNELSON">
+                    Mr. Incredible
+                </personage>
+                <personage acteur="HHUNTER">
+                    Helen Parr
+                </personage>
+                <personage acteur="HHUNTER">
+                    Helen Parr
+                </personage>
+                <personage acteur="SJACKSON">
+                    Lucius Best
+                </personage>
+                <personage acteur="SJACKSON">
+                    Frozone
+                </personage>
+                <personage acteur="JLEE">
+                    Buddy Pine
+                </personage>
+                <personage acteur="JLEE">
+                    Syndrome
+                </personage>
+            </cast>
+            <regisseur naam="BBIRD"/>
+            <speelduur>115</speelduur>
+            <maatschappijen>
+                <maatschappij naam="WALTDISNEYPICTURES"/>
+            </maatschappijen>
+        </animatiefilm>
+        <animatiefilm id="IA" beoordeling="KT">
+            <titel>Ice Age</titel>
+            <cast>
+                <personage acteur="RROMANO">
+                    Manfred
+                </personage>
+                <personage acteur="JLEGUIZAMO">
+                    Sid
+                </personage>
+                <personage acteur="DLEARY">
+                    Diego
+                </personage>
+            </cast>
+            <regisseur naam="CWEDGE"/>
+            <regisseur naam="CSALDANHA"/>
+            <speelduur>81</speelduur>
+            <maatschappijen>
+                <maatschappij naam="BLUESKYSTUDIO"/>
+            </maatschappijen>
+        </animatiefilm>
+        <film id="TSR" beoordeling="KNT">
+            <titel>The Shawshank Redemption</titel>
+            <cast>
+                <personage acteur="TROBBINS">
+                    Andy Dufresne
+                </personage>
+                <personage acteur="MFREEMAN">
+                    Ellis Boyd 'Red' Redding
+                </personage>
+                <personage acteur="BGUNTON">
+                    Warden Norton
+                </personage>
+                <personage acteur="WSADLER">
+                    Heywood
+                </personage>
+                <personage acteur="CBROWN">
+                    Captain Hadley
+                </personage>
+            </cast>
+            <regisseur naam="FDARABONT"/>
+            <speelduur>142</speelduur>
+            <maatschappijen>
+                <maatschappij naam="CASTLEROCK"/>
+            </maatschappijen>
+            <filmlocatie>
+                Ashland, Ohio, USA
+            </filmlocatie>
+        </film>
+        <film id="TDK" beoordeling="KT">
+            <titel>The Dark Knight</titel>
+            <cast>
+                <personage acteur="CBALE">
+                    Bruce Wayne
+                </personage>
+                <personage acteur="CBALE">
+                    Batman
+                </personage>
+                <personage acteur="MFREEMAN">
+                    Lucius Fox
+                </personage>
+                <personage acteur="MCAINE">
+                    Alfred
+                </personage>
+                <personage acteur="HLEDGER">
+                    The Joker
+                </personage>
+                <personage acteur="MGYLLENHAAL">
+                    Rachel Dawes
+                </personage>
+            </cast>
+            <regisseur naam="CNOLAN"/>
+            <speelduur>152</speelduur>
+            <maatschappijen>
+                <maatschappij naam="WARNERBROS" />
+                <maatschappij naam="LEGENDARYPICTURES" />
+            </maatschappijen>
+            <filmlocatie>
+                Atwood Cafe - 1 W Washington St, Chicago, Illinois, USA
+            </filmlocatie>
+        </film>
+        <film id="PF" beoordeling="KNT">
+            <titel>Pulp Fiction</titel>
+            <cast>
+                <personage acteur="JTRAVOLTA">
+                    Vincent Vega
+                </personage>
+                <personage acteur="SJACKSON">
+                    Jules Winnifield
+                </personage>
+                <personage acteur="BWILLIS">
+                    Butch Coolidge
+                </personage>
+                <personage acteur="UTHURMAN">
+                    Mia Wallace
+                </personage>
+            </cast>
+            <regisseur naam="QTARANTINO"/>
+            <speelduur>154</speelduur>
+            <maatschappijen>
+                <maatschappij naam="MIRAMAX" />
+            </maatschappijen>
+            <filmlocatie>
+                Hawthorne Grill - 13763 S. Hawthorne Boulevard, Hawthorne, California, USA
+            </filmlocatie>
+        </film>
+        <film id="NCFOM" beoordeling="KNT">
+            <titel>No Country for old men.</titel>
+            <cast>
+                <personage acteur="TLJONES">
+                    Sherriff Ed Tom Bell
+                </personage>
+                <personage acteur="JBARDEM">
+                    Anton Chigurh
+                </personage>
+                <personage acteur="WHARRELSON">
+                    Carson Wells
+                </personage>
+                <personage acteur="JBROLIN">
+                    Llewelyn Moss
+                </personage>
+                <personage acteur="KMACDONALD">
+                    Carla Jean Moss
+                </personage>
+            </cast>
+            <regisseur naam="ECOEN"/>
+            <regisseur naam="JCOEN"/>
+            <speelduur>122</speelduur>
+            <maatschappijen>
+                <maatschappij naam="PARAMOUNTVANTAGE"/>
+                <maatschappij naam="MIRAMAX"/>
+            </maatschappijen>
+            <filmlocatie>
+                Albuquerque, New Mexico, USA
+            </filmlocatie>
+        </film>
+        <film id="KBV1" beoordeling="KNT">
+            <titel>Kill Bill: Vol 1</titel>
+            <cast>
+                <personage acteur="UTHURMAN">
+                    The Bride
+                </personage>
+                <personage acteur="LLIU">
+                    O-Ren Ishii
+                </personage>
+                <personage acteur="VFOX">
+                    Vernita Green
+                </personage>
+                <personage acteur="DHANNAH">
+                    Elle Driver
+                </personage>
+            </cast>
+            <regisseur naam="QTARANTINO"/>
+            <speelduur>111</speelduur>
+            <maatschappijen>
+                <maatschappij naam="MIRAMAX"/>
+            </maatschappijen>
+            <filmlocatie>
+                Austin, Texas, USA
+            </filmlocatie>
+        </film>
+        <film id="D" beoordeling="KT">
+            <titel>Daens</titel>
+            <cast>
+                <personage acteur="JDECLEIR">
+                    Priester Daens
+                </personage>
+                <personage acteur="GDESARTHE">
+                    Charles Woeste
+                </personage>
+                <personage acteur="ADEBOECK">
+                    Nette Scholliers
+                </personage>
+                <personage acteur="MPAS">
+                    Jan De Meeter
+                </personage>
+            </cast>
+            <regisseur naam="SCONINX"/>
+            <speelduur>138</speelduur>
+            <maatschappijen>
+                <maatschappij naam="FAVOURITEFILMS" />
+            </maatschappijen>
+            <filmlocatie>
+                Aalst, Belgium
+            </filmlocatie>
+        </film>
+        <film id="LVEB" beoordeling="KT">
+            <titel>La Vita e Bella</titel>
+            <cast>
+                <personage acteur="RBENIGNI">
+                    Guido Orefice
+                </personage>
+                <personage acteur="NBRASCHI">
+                    Dora
+                </personage>
+            </cast>
+            <regisseur naam="RBENIGNI"/>
+            <speelduur>116</speelduur>
+            <maatschappijen>
+                <maatschappij naam="CECCHIGORIGROUPTIGERCINEMATOGRAFICA" />
+            </maatschappijen>
+            <filmlocatie>
+                Arezzo, Tuscany, Italy
+            </filmlocatie>
+        </film>
+        <film id="MDB" beoordeling="KT">
+            <titel>Million Dollar Baby</titel>
+            <cast>
+                <personage acteur="CEASTWOOD">
+                    Frankie Dunn
+                </personage>
+                <personage acteur="HSWANK">
+                    Maggie Fitzgerald
+                </personage>
+                <personage acteur="MFREEMAN">
+                    Eddie Scrap-Iron Dupris
+                </personage>
+            </cast>
+            <regisseur naam="CEASTWOOD"/>
+            <speelduur>132</speelduur>
+            <maatschappijen>
+                <maatschappij naam="WARNERBROS" />
+            </maatschappijen>
+            <filmlocatie>
+                Hollywood Athletic Club - 6525 W. Sunset Blvd., Hollywood, Los Angeles, California, USA
+            </filmlocatie>
+        </film>
+        <film id="S" beoordeling="KNT">
+            <titel>Se7en</titel>
+            <cast>
+                <personage acteur="BPITT">
+                    Detective David Mills
+                </personage>
+                <personage acteur="MFREEMAN">
+                    Detective Lt. Willian Somerset
+                </personage>
+                <personage acteur="GPALTROW">
+                    Tracy Mills
+                </personage>
+                <personage acteur="KSPACEY">
+                    John Doe
+                </personage>
+            </cast>
+            <regisseur naam="DFINCHER"/>
+            <speelduur>127</speelduur>
+            <maatschappijen>
+                <maatschappij naam="NEWLINE" />
+            </maatschappijen>
+            <filmlocatie>
+                Alexandria Hotel - 501 S. Spring Street, Downtown, Los Angeles, California, USA
+            </filmlocatie>
+        </film>
+        <film id="TM" beoordeling="KNT">
+            <titel>The Matrix</titel>
+            <cast>
+                <personage acteur="KREEVES">
+                    Neo
+                </personage>
+                <personage acteur="LFISHBURNE">
+                    Morpheus
+                </personage>
+                <personage acteur="CAMOSS">
+                    Trinity
+                </personage>
+                <personage acteur="HWEAVING">
+                    Agent Smith
+                </personage>
+            </cast>
+            <regisseur naam="AWACHOWSKI"/>
+            <regisseur naam="LWACHOWSKI"/>
+            <speelduur>136</speelduur>
+            <maatschappijen>
+                <maatschappij naam="WARNERBROS" />
+            </maatschappijen>
+            <filmlocatie>
+                AON Tower, Kent Street, Sydney, New South Wales, Australia
+            </filmlocatie>
+        </film>
+        <film id="A" beoordeling="KNT">
+            <titel>Amistad</titel>
+            <cast>
+                <personage acteur="MFREEMAN">
+                    Theodore Joadson
+                </personage>
+                <personage acteur="AHOPKINS">
+                    John Quincy Adams
+                </personage>
+            </cast>
+            <regisseur naam="SSPIELBERG"/>
+            <speelduur>152</speelduur>
+            <maatschappijen>
+                <maatschappij naam="DREAMWORKS" />
+            </maatschappijen>
+            <filmlocatie>
+                Boston, Massachusetts, USA
+            </filmlocatie>
+        </film>
+        <film id="TLOTRTROTK" beoordeling="KT">
+            <titel>The Lord of the rings: the return of the king</titel>
+            <cast>
+                <personage acteur="OBLOOM">
+                    Legolas
+                </personage>
+                <personage acteur="SASTIN">
+                    Sam
+                </personage>
+                <personage acteur="EWOOD">
+                    Frodo
+                </personage>
+                <personage acteur="VMORTENSEN">
+                    Aragorn
+                </personage>
+                <personage acteur="LTYLER">
+                    Arwen
+                </personage>
+            </cast>
+            <regisseur naam="PJACKSON"/>
+            <speelduur>201</speelduur>
+            <maatschappijen>
+                <maatschappij naam="NEWLINE" />
+            </maatschappijen>
+            <filmlocatie>
+                Camperdown Studios, Camperdown Road, Miramar, Wellington, New Zealand
+            </filmlocatie>
+        </film>
+        <film id="MMS" beoordeling="KT">
+            <titel>Mr. &amp; Mrs. Smith</titel>
+            <cast>
+                <personage acteur="BPITT">
+                    John Smith
+                </personage>
+                <personage acteur="AJOLIE">
+                    Jane Smith
+                </personage>
+            </cast>
+            <regisseur naam="DLIMAN"/>
+            <speelduur>120</speelduur>
+            <maatschappijen>
+                <maatschappij naam="REGENCYENTERPRICES" />
+            </maatschappijen>
+            <filmlocatie>
+                Brooklyn Bridge, New York City, New York, USA
+            </filmlocatie>
+        </film>
+        <film id="DZA" beoordeling="KNT">
+            <titel>De Zaak Alzheimer</titel>
+            <cast>
+                <personage acteur="JDECLEIR">
+                    Angelo Ledda
+                </personage>
+                <personage acteur="KDEBOUW">
+                    Eric Vincke
+                </personage>
+                <personage acteur="WDESMEDT">
+                    Freddy Verstuyft
+                </personage>
+            </cast>
+            <regisseur naam="EVANLOOY"/>
+            <speelduur>120</speelduur>
+            <maatschappijen>
+                <maatschappij naam="MMG" />
+            </maatschappijen>
+            <filmlocatie>
+                Antwerpen, Antwerpen, Belgium
+            </filmlocatie>
+        </film>
+        <film id="TG" beoordeling="KNT">
+            <titel>The Godfather</titel>
+            <cast>
+                <personage acteur="MBRANDO">
+                    Don Vito Corleone
+                </personage>
+                <personage acteur="APACINO">
+                    Michael Corleone
+                </personage>
+                <personage acteur="JCAAN">
+                    Santino 'Sonny' Corleone
+                </personage>
+                <personage acteur="RDUVALL">
+                    Tom Hagen
+                </personage>
+            </cast>
+            <regisseur naam="FFCOPPOLA"/>
+            <speelduur>175</speelduur>
+            <maatschappijen>
+                <maatschappij naam="PARAMOUNT"/>
+            </maatschappijen>
+            <filmlocatie>
+                110 Longfellow Road, Staten Island, New York City, New York, USA
+            </filmlocatie>
+        </film>
+        <film id="SW" beoordeling="KT">
+            <titel>Star Wars</titel>
+            <cast>
+                <personage acteur="MHAMILL">
+                    Luke Skywalker
+                </personage>
+                <personage acteur="HFORD">
+                    Han Solo
+                </personage>
+                <personage acteur="CFISHER">
+                    Princess Leia Organa
+                </personage>
+            </cast>
+            <regisseur naam="GLUCAS"/>
+            <speelduur>121</speelduur>
+            <maatschappijen>
+                <maatschappij naam="LUCASFILM"/>
+                <maatschappij naam="TWENTIETHCENTURYFOX"/>
+            </maatschappijen>
+            <filmlocatie>
+                Tikal National Park, Guatemala
+            </filmlocatie>
+        </film>
+        <film id="ROTLA" beoordeling="KT">
+            <titel>Raiders of the Lost Ark</titel>
+            <cast>
+                <personage acteur="HFORD">
+                    Indiana Jones
+                </personage>
+                <personage acteur="KALLEN">
+                    Marion Ravenwood
+                </personage>
+            </cast>
+            <regisseur naam="SSPIELBERG"/>
+            <speelduur>115</speelduur>
+            <maatschappijen>
+                <maatschappij naam="LUCASFILM"/>
+                <maatschappij naam="PARAMOUNT"/>
+            </maatschappijen>
+            <filmlocatie>
+                Bushey, Hertfordshire, England, UK
+            </filmlocatie>
+        </film>
+        <film id="MA" beoordeling="KT">
+            <titel>Mar Adentro</titel>
+            <cast>
+                <personage acteur="JBARDEM">
+                    Ramon Sampedro
+                </personage>
+                <personage acteur="BRUEDA">
+                    Julia
+                </personage>
+            </cast>
+            <regisseur naam="AAMENABAR"/>
+            <speelduur>125</speelduur>
+            <maatschappijen>
+                <maatschappij naam="SOGECINE"/>
+            </maatschappijen>
+            <filmlocatie>
+                Barcelona, Catalunya, Spain
+            </filmlocatie>
+        </film>
+        <film id="AN" beoordeling="KNT">
+            <titel>Apocalypse Now</titel>
+            <cast>
+                <personage acteur="MBRANDO">
+                    Colonel Walter E. Kurtz
+                </personage>
+                <personage acteur="MSHEEN">
+                    Captain Benjamin L. Willard
+                </personage>
+                <personage acteur="RDUVALL">
+                    Lieutenant Colonel Bill Kilgore
+                </personage>
+            </cast>
+            <regisseur naam="FFCOPPOLA"/>
+            <speelduur>153</speelduur>
+            <maatschappijen>
+                <maatschappij naam="UNITEDARTISTS"/>
+            </maatschappijen>
+            <filmlocatie>
+                Philippines
+            </filmlocatie>
+        </film>
+    </films>
     <personen>
         <persoon id="NBRASCHI">
             <naam>Braschi, Nicoletta</naam>
@@ -741,560 +1219,82 @@
             <foto>bird.jpg</foto>
         </persoon>
     </personen>
-    <films>
-        <film id="MPATHG" beoordeling="KT">
-            <titel>Monty Python and the Holy Grail</titel>
-            <cast>
-                <personage acteur="GCHAPMAN">
-                    King Arthur
-                </personage>
-                <personage acteur="GCHAPMAN">
-                    Voice of God
-                </personage>
-                <personage acteur="GCHAPMAN">
-                    Middle Head
-                </personage>
-                <personage acteur="GCHAPMAN">
-                    Hiccoughing Guard
-                </personage>
-                <personage acteur="JCLEESE">
-                    The Black Knight
-                </personage>
-                <personage acteur="JCLEESE">
-                    Sir Lancelot, the Brave
-                </personage>
-                <personage acteur="JCLEESE">
-                    Taunting French Guard
-                </personage>
-                <personage acteur="JCLEESE">
-                    Tim the Enchanter
-                </personage>
-                <personage acteur="EIDLE">
-                    Sir Robin the Not-Quite-So-Brave-as-Sir Launcelot
-                </personage>
-                <personage acteur="EIDLE">
-                    Dead Collector
-                </personage>
-                <personage acteur="EIDLE">
-                    Roger the Shrubber
-                </personage>
-            </cast>
-            <regisseur naam="TJONES"/>
-            <speelduur>91</speelduur>
-            <maatschappijen>
-                <maatschappij naam="MICHAELWHITE"/>
-            </maatschappijen>
-            <filmlocatie>
-                Appin, Argyll, Scotland, UK
-            </filmlocatie>
-        </film>
-        <animatiefilm id="TI" beoordeling="KT">
-            <titel>The Incredibles</titel>
-            <cast>
-                <personage acteur="CNELSON">
-                    Bob Parr
-                </personage>
-                <personage acteur="CNELSON">
-                    Mr. Incredible
-                </personage>
-                <personage acteur="HHUNTER">
-                    Helen Parr
-                </personage>
-                <personage acteur="HHUNTER">
-                    Helen Parr
-                </personage>
-                <personage acteur="SJACKSON">
-                    Lucius Best
-                </personage>
-                <personage acteur="SJACKSON">
-                    Frozone
-                </personage>
-                <personage acteur="JLEE">
-                    Buddy Pine
-                </personage>
-                <personage acteur="JLEE">
-                    Syndrome
-                </personage>
-            </cast>
-            <regisseur naam="BBIRD"/>
-            <speelduur>115</speelduur>
-            <maatschappijen>
-                <maatschappij naam="WALTDISNEYPICTURES"/>
-            </maatschappijen>
-        </animatiefilm>
-        <animatiefilm id="IA" beoordeling="KT">
-            <titel>Ice Age</titel>
-            <cast>
-                <personage acteur="RROMANO">
-                    Manfred
-                </personage>
-                <personage acteur="JLEGUIZAMO">
-                    Sid
-                </personage>
-                <personage acteur="DLEARY">
-                    Diego
-                </personage>
-            </cast>
-            <regisseur naam="CWEDGE"/>
-            <regisseur naam="CSALDANHA"/>
-            <speelduur>81</speelduur>
-            <maatschappijen>
-                <maatschappij naam="BLUESKYSTUDIO"/>
-            </maatschappijen>
-        </animatiefilm>
-        <film id="TSR" beoordeling="KNT">
-            <titel>The Shawshank Redemption</titel>
-            <cast>
-                <personage acteur="TROBBINS">
-                    Andy Dufresne
-                </personage>
-                <personage acteur="MFREEMAN">
-                    Ellis Boyd 'Red' Redding
-                </personage>
-                <personage acteur="BGUNTON">
-                    Warden Norton
-                </personage>
-                <personage acteur="WSADLER">
-                    Heywood
-                </personage>
-                <personage acteur="CBROWN">
-                    Captain Hadley
-                </personage>
-            </cast>
-            <regisseur naam="FDARABONT"/>
-            <speelduur>142</speelduur>
-            <maatschappijen>
-                <maatschappij naam="CASTLEROCK"/>
-            </maatschappijen>
-            <filmlocatie>
-                Ashland, Ohio, USA
-            </filmlocatie>
-        </film>
-        <film id="TDK" beoordeling="KT">
-            <titel>The Dark Knight</titel>
-            <cast>
-                <personage acteur="CBALE">
-                    Bruce Wayne
-                </personage>
-                <personage acteur="CBALE">
-                    Batman
-                </personage>
-                <personage acteur="MFREEMAN">
-                    Lucius Fox
-                </personage>
-                <personage acteur="MCAINE">
-                    Alfred
-                </personage>
-                <personage acteur="HLEDGER">
-                    The Joker
-                </personage>
-                <personage acteur="MGYLLENHAAL">
-                    Rachel Dawes
-                </personage>
-            </cast>
-            <regisseur naam="CNOLAN"/>
-            <speelduur>152</speelduur>
-            <maatschappijen>
-                <maatschappij naam="WARNERBROS" />
-                <maatschappij naam="LEGENDARYPICTURES" />
-            </maatschappijen>
-            <filmlocatie>
-                Atwood Cafe - 1 W Washington St, Chicago, Illinois, USA
-            </filmlocatie>
-        </film>
-        <film id="PF" beoordeling="KNT">
-            <titel>Pulp Fiction</titel>
-            <cast>
-                <personage acteur="JTRAVOLTA">
-                    Vincent Vega
-                </personage>
-                <personage acteur="SJACKSON">
-                    Jules Winnifield
-                </personage>
-                <personage acteur="BWILLIS">
-                    Butch Coolidge
-                </personage>
-                <personage acteur="UTHURMAN">
-                    Mia Wallace
-                </personage>
-            </cast>
-            <regisseur naam="QTARANTINO"/>
-            <speelduur>154</speelduur>
-            <maatschappijen>
-                <maatschappij naam="MIRAMAX" />
-            </maatschappijen>
-            <filmlocatie>
-                Hawthorne Grill - 13763 S. Hawthorne Boulevard, Hawthorne, California, USA
-            </filmlocatie>
-        </film>
-        <film id="NCFOM" beoordeling="KNT">
-            <titel>No Country for old men.</titel>
-            <cast>
-                <personage acteur="TLJONES">
-                    Sherriff Ed Tom Bell
-                </personage>
-                <personage acteur="JBARDEM">
-                    Anton Chigurh
-                </personage>
-                <personage acteur="WHARRELSON">
-                    Carson Wells
-                </personage>
-                <personage acteur="JBROLIN">
-                    Llewelyn Moss
-                </personage>
-                <personage acteur="KMACDONALD">
-                    Carla Jean Moss
-                </personage>
-            </cast>
-            <regisseur naam="ECOEN"/>
-            <regisseur naam="JCOEN"/>
-            <speelduur>122</speelduur>
-            <maatschappijen>
-                <maatschappij naam="PARAMOUNTVANTAGE"/>
-                <maatschappij naam="MIRAMAX"/>
-            </maatschappijen>
-            <filmlocatie>
-                Albuquerque, New Mexico, USA
-            </filmlocatie>
-        </film>
-        <film id="KBV1" beoordeling="KNT">
-            <titel>Kill Bill: Vol 1</titel>
-            <cast>
-                <personage acteur="UTHURMAN">
-                    The Bride
-                </personage>
-                <personage acteur="LLIU">
-                    O-Ren Ishii
-                </personage>
-                <personage acteur="VFOX">
-                    Vernita Green
-                </personage>
-                <personage acteur="DHANNAH">
-                    Elle Driver
-                </personage>
-            </cast>
-            <regisseur naam="QTARANTINO"/>
-            <speelduur>111</speelduur>
-            <maatschappijen>
-                <maatschappij naam="MIRAMAX"/>
-            </maatschappijen>
-            <filmlocatie>
-                Austin, Texas, USA
-            </filmlocatie>
-        </film>
-        <film id="D" beoordeling="KT">
-            <titel>Daens</titel>
-            <cast>
-                <personage acteur="JDECLEIR">
-                    Priester Daens
-                </personage>
-                <personage acteur="GDESARTHE">
-                    Charles Woeste
-                </personage>
-                <personage acteur="ADEBOECK">
-                    Nette Scholliers
-                </personage>
-                <personage acteur="MPAS">
-                    Jan De Meeter
-                </personage>
-            </cast>
-            <regisseur naam="SCONINX"/>
-            <speelduur>138</speelduur>
-            <maatschappijen>
-                <maatschappij naam="FAVOURITEFILMS" />
-            </maatschappijen>
-            <filmlocatie>
-                Aalst, Belgium
-            </filmlocatie>
-        </film>
-        <film id="LVEB" beoordeling="KT">
-            <titel>La Vita e Bella</titel>
-            <cast>
-                <personage acteur="RBENIGNI">
-                    Guido Orefice
-                </personage>
-                <personage acteur="NBRASCHI">
-                    Dora
-                </personage>
-            </cast>
-            <regisseur naam="RBENIGNI"/>
-            <speelduur>116</speelduur>
-            <maatschappijen>
-                <maatschappij naam="CECCHIGORIGROUPTIGERCINEMATOGRAFICA" />
-            </maatschappijen>
-            <filmlocatie>
-                Arezzo, Tuscany, Italy
-            </filmlocatie>
-        </film>
-        <film id="MDB" beoordeling="KT">
-            <titel>Million Dollar Baby</titel>
-            <cast>
-                <personage acteur="CEASTWOOD">
-                    Frankie Dunn
-                </personage>
-                <personage acteur="HSWANK">
-                    Maggie Fitzgerald
-                </personage>
-                <personage acteur="MFREEMAN">
-                    Eddie Scrap-Iron Dupris
-                </personage>
-            </cast>
-            <regisseur naam="CEASTWOOD"/>
-            <speelduur>132</speelduur>
-            <maatschappijen>
-                <maatschappij naam="WARNERBROS" />
-            </maatschappijen>
-            <filmlocatie>
-                Hollywood Athletic Club - 6525 W. Sunset Blvd., Hollywood, Los Angeles, California, USA
-            </filmlocatie>
-        </film>
-        <film id="S" beoordeling="KNT">
-            <titel>Se7en</titel>
-            <cast>
-                <personage acteur="BPITT">
-                    Detective David Mills
-                </personage>
-                <personage acteur="MFREEMAN">
-                    Detective Lt. Willian Somerset
-                </personage>
-                <personage acteur="GPALTROW">
-                    Tracy Mills
-                </personage>
-                <personage acteur="KSPACEY">
-                    John Doe
-                </personage>
-            </cast>
-            <regisseur naam="DFINCHER"/>
-            <speelduur>127</speelduur>
-            <maatschappijen>
-                <maatschappij naam="NEWLINE" />
-            </maatschappijen>
-            <filmlocatie>
-                Alexandria Hotel - 501 S. Spring Street, Downtown, Los Angeles, California, USA
-            </filmlocatie>
-        </film>
-        <film id="TM" beoordeling="KNT">
-            <titel>The Matrix</titel>
-            <cast>
-                <personage acteur="KREEVES">
-                    Neo
-                </personage>
-                <personage acteur="LFISHBURNE">
-                    Morpheus
-                </personage>
-                <personage acteur="CAMOSS">
-                    Trinity
-                </personage>
-                <personage acteur="HWEAVING">
-                    Agent Smith
-                </personage>
-            </cast>
-            <regisseur naam="AWACHOWSKI"/>
-            <regisseur naam="LWACHOWSKI"/>
-            <speelduur>136</speelduur>
-            <maatschappijen>
-                <maatschappij naam="WARNERBROS" />
-            </maatschappijen>
-            <filmlocatie>
-                AON Tower, Kent Street, Sydney, New South Wales, Australia
-            </filmlocatie>
-        </film>
-        <film id="A" beoordeling="KNT">
-            <titel>Amistad</titel>
-            <cast>
-                <personage acteur="MFREEMAN">
-                    Theodore Joadson
-                </personage>
-                <personage acteur="AHOPKINS">
-                    John Quincy Adams
-                </personage>
-            </cast>
-            <regisseur naam="SSPIELBERG"/>
-            <speelduur>152</speelduur>
-            <maatschappijen>
-                <maatschappij naam="DREAMWORKS" />
-            </maatschappijen>
-            <filmlocatie>
-                Boston, Massachusetts, USA
-            </filmlocatie>
-        </film>
-        <film id="TLOTRTROTK" beoordeling="KT">
-            <titel>The Lord of the rings: the return of the king</titel>
-            <cast>
-                <personage acteur="OBLOOM">
-                    Legolas
-                </personage>
-                <personage acteur="SASTIN">
-                    Sam
-                </personage>
-                <personage acteur="EWOOD">
-                    Frodo
-                </personage>
-                <personage acteur="VMORTENSEN">
-                    Aragorn
-                </personage>
-                <personage acteur="LTYLER">
-                    Arwen
-                </personage>
-            </cast>
-            <regisseur naam="PJACKSON"/>
-            <speelduur>201</speelduur>
-            <maatschappijen>
-                <maatschappij naam="NEWLINE" />
-            </maatschappijen>
-            <filmlocatie>
-                Camperdown Studios, Camperdown Road, Miramar, Wellington, New Zealand
-            </filmlocatie>
-        </film>
-        <film id="MMS" beoordeling="KT">
-            <titel>Mr. &amp; Mrs. Smith</titel>
-            <cast>
-                <personage acteur="BPITT">
-                    John Smith
-                </personage>
-                <personage acteur="AJOLIE">
-                    Jane Smith
-                </personage>
-            </cast>
-            <regisseur naam="DLIMAN"/>
-            <speelduur>120</speelduur>
-            <maatschappijen>
-                <maatschappij naam="REGENCYENTERPRICES" />
-            </maatschappijen>
-            <filmlocatie>
-                Brooklyn Bridge, New York City, New York, USA
-            </filmlocatie>
-        </film>
-        <film id="DZA" beoordeling="KNT">
-            <titel>De Zaak Alzheimer</titel>
-            <cast>
-                <personage acteur="JDECLEIR">
-                    Angelo Ledda
-                </personage>
-                <personage acteur="KDEBOUW">
-                    Eric Vincke
-                </personage>
-                <personage acteur="WDESMEDT">
-                    Freddy Verstuyft
-                </personage>
-            </cast>
-            <regisseur naam="EVANLOOY"/>
-            <speelduur>120</speelduur>
-            <maatschappijen>
-                <maatschappij naam="MMG" />
-            </maatschappijen>
-            <filmlocatie>
-                Antwerpen, Antwerpen, Belgium
-            </filmlocatie>
-        </film>
-        <film id="TG" beoordeling="KNT">
-            <titel>The Godfather</titel>
-            <cast>
-                <personage acteur="MBRANDO">
-                    Don Vito Corleone
-                </personage>
-                <personage acteur="APACINO">
-                    Michael Corleone
-                </personage>
-                <personage acteur="JCAAN">
-                    Santino 'Sonny' Corleone
-                </personage>
-                <personage acteur="RDUVALL">
-                    Tom Hagen
-                </personage>
-            </cast>
-            <regisseur naam="FFCOPPOLA"/>
-            <speelduur>175</speelduur>
-            <maatschappijen>
-                <maatschappij naam="PARAMOUNT"/>
-            </maatschappijen>
-            <filmlocatie>
-                110 Longfellow Road, Staten Island, New York City, New York, USA
-            </filmlocatie>
-        </film>
-        <film id="SW" beoordeling="KT">
-            <titel>Star Wars</titel>
-            <cast>
-                <personage acteur="MHAMILL">
-                    Luke Skywalker
-                </personage>
-                <personage acteur="HFORD">
-                    Han Solo
-                </personage>
-                <personage acteur="CFISHER">
-                    Princess Leia Organa
-                </personage>
-            </cast>
-            <regisseur naam="GLUCAS"/>
-            <speelduur>121</speelduur>
-            <maatschappijen>
-                <maatschappij naam="LUCASFILM"/>
-                <maatschappij naam="TWENTIETHCENTURYFOX"/>
-            </maatschappijen>
-            <filmlocatie>
-                Tikal National Park, Guatemala
-            </filmlocatie>
-        </film>
-        <film id="ROTLA" beoordeling="KT">
-            <titel>Raiders of the Lost Ark</titel>
-            <cast>
-                <personage acteur="HFORD">
-                    Indiana Jones
-                </personage>
-                <personage acteur="KALLEN">
-                    Marion Ravenwood
-                </personage>
-            </cast>
-            <regisseur naam="SSPIELBERG"/>
-            <speelduur>115</speelduur>
-            <maatschappijen>
-                <maatschappij naam="LUCASFILM"/>
-                <maatschappij naam="PARAMOUNT"/>
-            </maatschappijen>
-            <filmlocatie>
-                Bushey, Hertfordshire, England, UK
-            </filmlocatie>
-        </film>
-        <film id="MA" beoordeling="KT">
-            <titel>Mar Adentro</titel>
-            <cast>
-                <personage acteur="JBARDEM">
-                    Ramon Sampedro
-                </personage>
-                <personage acteur="BRUEDA">
-                    Julia
-                </personage>
-            </cast>
-            <regisseur naam="AAMENABAR"/>
-            <speelduur>125</speelduur>
-            <maatschappijen>
-                <maatschappij naam="SOGECINE"/>
-            </maatschappijen>
-            <filmlocatie>
-                Barcelona, Catalunya, Spain
-            </filmlocatie>
-        </film>
-        <film id="AN" beoordeling="KNT">
-            <titel>Apocalypse Now</titel>
-            <cast>
-                <personage acteur="MBRANDO">
-                    Colonel Walter E. Kurtz
-                </personage>
-                <personage acteur="MSHEEN">
-                    Captain Benjamin L. Willard
-                </personage>
-                <personage acteur="RDUVALL">
-                    Lieutenant Colonel Bill Kilgore
-                </personage>
-            </cast>
-            <regisseur naam="FFCOPPOLA"/>
-            <speelduur>153</speelduur>
-            <maatschappijen>
-                <maatschappij naam="UNITEDARTISTS"/>
-            </maatschappijen>
-            <filmlocatie>
-                Philippines
-            </filmlocatie>
-        </film>
-    </films>
+    <filmmaatschappijen>
+        <filmmaatschappij id="WALTDISNEYPICTURES">
+            <naam>Walt Disney Pictures</naam>
+            <website>disney.go.com/DisneyPictures</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="BLUESKYSTUDIO">
+            <naam>Blue Sky Studio</naam>
+            <website>www.blueskystudios.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="CASTLEROCK">
+            <naam>Castle Rock Entertainment</naam>
+            <website>www.lonestar-movie.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="NEWLINE">
+            <naam>New Line Cinema</naam>
+            <website>www.newline.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="MIRAMAX">
+            <naam>Miramax Films</naam>
+            <website>www.miramax.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="LEGENDARYPICTURES">
+            <naam>Legendary Pictures</naam>
+            <website>www.legendarypictures.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="PARAMOUNTVANTAGE">
+            <naam>Paramount Vantage</naam>
+            <website>www.paramountvantage.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="FAVOURITEFILMS">
+            <naam>Favourite Films</naam>
+            <website>www.favouritefilms.be/portal/index.htm</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="CECCHIGORIGROUPTIGERCINEMATOGRAFICA">
+            <naam>Cecchi Gori Group Tiger Cinematografica </naam>
+            <website>www.rarenaam.be</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="REGENCYENTERPRICES">
+            <naam>New Regency Enterprices</naam>
+            <website>www.newregency.com/</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="MMG">
+            <naam>MMG Film &amp; TV Productions</naam>
+            <website>www.mmg.be/</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="WARNERBROS">
+            <naam>Warner Bros. Pictures</naam>
+            <website>www.nl.warnerbros.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="DREAMWORKS">
+            <naam>DreamWorks</naam>
+            <website>www.dreamworks.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="TWENTIETHCENTURYFOX">
+            <naam>20th Century Fox</naam>
+            <website>www.foxfilm.nl</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="PARAMOUNT">
+            <naam>Paramount Pictures</naam>
+            <website>www.paramount.nl</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="LUCASFILM">
+            <naam>Lucasfilm</naam>
+            <website>www.lucasfilm.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="SOGECINE">
+            <naam>Sogecine</naam>
+            <website>www.sogecine-sogepaq.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="UNITEDARTISTS">
+            <naam>United Artists</naam>
+            <website>www.unitedartists.com</website>
+        </filmmaatschappij>
+        <filmmaatschappij id="MICHAELWHITE">
+            <naam>Michael White Productions</naam>
+            <website>michaelwhiteproductions.com</website>
+        </filmmaatschappij>
+    </filmmaatschappijen>
 </imdb>
