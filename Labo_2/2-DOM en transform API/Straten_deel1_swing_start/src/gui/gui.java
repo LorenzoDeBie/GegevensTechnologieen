@@ -10,6 +10,7 @@ import straten.bo.Wijk;
 import straten.bo.Straat;
 import straten.dummy.DummyGemeente;
 import straten.xml.XMLGemeente;
+import straten.xml.XMLGemeente2;
 
 /**
  *
@@ -25,7 +26,7 @@ public class gui extends javax.swing.JFrame {
         initialiseerTabelSectoren();
 
         //read all data from xml file
-        gemeente = new XMLGemeente("Labo_2/2-DOM en transform API/Straten_deel1_swing_start/stratenInGent.xml");
+        gemeente = new XMLGemeente2("stratenInGent.xml");
 
         vulStadsdelen();
 
