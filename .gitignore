@@ -334,3 +334,6 @@ out/
 
 # ufora style sheets
 uforaTiwiStijl.css
+
+# Compiled java classes
+*.class
