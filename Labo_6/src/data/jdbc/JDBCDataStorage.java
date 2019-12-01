@@ -20,8 +20,8 @@ import java.util.ResourceBundle;
 
 public class JDBCDataStorage implements IDataStorage {
 
-    protected final ResourceBundle sqlOpdrachten;
-    protected final ResourceBundle databaseConfig;
+    final ResourceBundle sqlOpdrachten;
+    private final ResourceBundle databaseConfig;
 
     public JDBCDataStorage() {
         sqlOpdrachten = ResourceBundle.getBundle("data.jdbc.sql");
@@ -101,27 +101,25 @@ public class JDBCDataStorage implements IDataStorage {
     @Override
     public List<IOrder> getOrders(int customerNumber) throws DataExceptie {
         List<IOrder> list = new ArrayList<>();
-        try {
-            //get order details
-            //try met iets tussen haakjes is beetje zoals using in C#
-            try(Connection conn = getConnection();
-                PreparedStatement stmt = conn.prepareStatement(sqlOpdrachten.getString("Q_ORDERS"))) {
-                stmt.setInt(1, customerNumber);
-                ResultSet rs = stmt.executeQuery();
-                while(rs.next()) {
-                    //get order details
-                    int orderNumber = rs.getInt(sqlOpdrachten.getString("O_NUMBER"));
-                    list.add(new Order(
-                            orderNumber,
-                            rs.getDate(sqlOpdrachten.getString("O_ORDERED")),
-                            rs.getDate(sqlOpdrachten.getString("O_REQUIRED")),
-                            rs.getDate(sqlOpdrachten.getString("O_SHIPPED")),
-                            rs.getString(sqlOpdrachten.getString("O_STATUS")),
-                            rs.getString(sqlOpdrachten.getString("O_COMMENTS")),
-                            rs.getInt(sqlOpdrachten.getString("O_CNUMBER")),
-                            getDetails(orderNumber)
-                    ));
-                }
+        //get order details
+        //try met iets tussen haakjes is beetje zoals using in C#
+        try(Connection conn = getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sqlOpdrachten.getString("Q_ORDERS"))) {
+            stmt.setInt(1, customerNumber);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()) {
+                //get order details
+                int orderNumber = rs.getInt(sqlOpdrachten.getString("O_NUMBER"));
+                list.add(new Order(
+                        orderNumber,
+                        rs.getDate(sqlOpdrachten.getString("O_ORDERED")),
+                        rs.getDate(sqlOpdrachten.getString("O_REQUIRED")),
+                        rs.getDate(sqlOpdrachten.getString("O_SHIPPED")),
+                        rs.getString(sqlOpdrachten.getString("O_STATUS")),
+                        rs.getString(sqlOpdrachten.getString("O_COMMENTS")),
+                        rs.getInt(sqlOpdrachten.getString("O_CNUMBER")),
+                        getDetails(orderNumber)
+                ));
             }
         }
         catch (SQLException e) {
